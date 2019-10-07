@@ -17,6 +17,7 @@
         @blur="handleBlur"
         @input="handleInput($event.target.value)"
         autocomplete="off"
+        :disabled="disabledChildInputElement"
       />
       <div v-if="$slots.append || append" class="input-group-append">
         <slot name="append">
@@ -60,6 +61,10 @@ export default {
   },
 
   props: {
+    disabledChildInputElement: {
+      type: Boolean,
+      default: false
+    },
     size: {
       type: String,
       default: null,
